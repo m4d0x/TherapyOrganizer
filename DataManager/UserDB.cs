@@ -12,21 +12,36 @@ public class UserDB
     {
     }
 
-    public void CreateUser(User newUser)
+    public static void ExecuteUserInsert(User newUser) // Connection that creates the "shell" of a user containing email and password until user is tossed for the final registration. //tho maybe not if admin does the creation?
     {
         var connection = new MySqlConnection(Connector.sqlConString);
         var parameters = new DynamicParameters(newUser);
         var sqlString = "INSERT INTO user (first_name, last_name, email, pass_word, phone_number, isAdmin) VALUES (@FirstName, @LastName, @Email, @PassWord, @PhoneNumber, 0);";
-        
-        return activeUserId = connection.QuerySingle<int>(sqlString, parameters);
+
+        return newUser = connection.QuerySingle<int>(sqlString, parameters);
 
     }
 
-    public User FindUser(string userEmail, string userPassword)
+    public User ExtractUserLoginData(string userEmail, string userPassword)
     {
         var connection = new MySqlConnection(Connector.sqlConString);
         string sqlQuery = "SELECT `id` AS UserId, `first_name` AS FirstName, `last_name` AS LastName, `email` AS Email, `password` AS Password `isAdmin`AS IsAdmin FROM `user` WHERE `user.email` = {userEmail} AND `user.password` = {userPassword};";
-        var userProfile = connection.Query<User>(sqlQuery, parameters).FirstOrDefault();
+        var userProfile = connection.Query<User>(sqlQuery).FirstOrDefault();
+        if (userProfile != null)
+        {
+            activeUserId = userProfile.UserId;
+            activeUserName = userProfile.FirstName + " " + userProfile.LastName;
+            return userProfile;
+
+        }
+        return null;
+    }
+
+    public User ExtractSingleUserData()
+    {
+        var connection = new MySqlConnection(Connector.sqlConString);
+        string sqlQuery = "SELECT `id` AS UserId, `first_name` AS FirstName, `last_name` AS LastName, `email` AS Email, `password` AS Password `isAdmin`AS IsAdmin FROM `user` WHERE `user.email` = {userEmail} AND `user.password` = {userPassword};";
+        var userProfile = connection.Query<User>(sqlQuery).FirstOrDefault();
         if (userProfile != null)
         {
             activeUserId = userProfile.UserId;

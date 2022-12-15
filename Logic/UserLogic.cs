@@ -5,9 +5,10 @@ namespace Logic;
 public class UserLogic
 {
 
-    public static void UserLogin(User user)
+    public static void UserLogin(User currentUser)
     {
-        UserDB.FindUser();
+        UserDB userDB = new();
+        currentUser = userDB.ExtractSingleUserData();
     }
 
     public void LogInUser()
@@ -53,9 +54,16 @@ public class UserLogic
         AnsiConsole.WriteLine(new Markup("[red]- Create Account -[/]"));
         AnsiConsole.Write(new Markup("\n[green] Enter password: [/]"));
         string? passwordInput = ApplicationLogic.CheckIfValid(Console.ReadLine().ToLower());
-        currentUser = UserDB.CreateUser(emailInput, passwordInput);
+        currentUser = UserDB.ExecuteUserInsert(currentUser, emailInput, passwordInput);
     }
 
-
-
+    public static void FindUser()
+    {
+        Console.Clear();
+        UserDB userQuery = new();
+        foreach (var item in userQuery.ExtractSingleUserData())
+        {
+            AnsiConsole.Write(new Markup("\n[underline bold red] Name:[/]\n[underline bold red] {item.FirstName}[/]\n"));
+        }
+    }
 }
