@@ -4,57 +4,56 @@ namespace Logic;
 
 public class UserLogic
 {
-
-    public static void UserLogin(User currentUser)
-    {
-        UserDB userDB = new();
-        currentUser = userDB.ExtractSingleUserData();
-    }
-
-    public void LogInUser()
-    {
-        //user email check
-        AnsiConsole.Write(new Markup("[red] Enter email address: "));
-        string? emailInput = ApplicationLogic.CheckIfValid(Console.ReadLine().ToLower());
-        //password check
-        AnsiConsole.Write(new Markup("[red] Enter password: "));
-        string? passwordInput = ApplicationLogic.CheckIfValid(Console.ReadLine().ToLower());
-        User currentUser = UserLogic.UserLogin(emailInput, passwordInput);
-
-        if (currentUser != null)
+    /* 
+        public static void UserLogin(User currentUser)
         {
-            if (currentUser.isAdmin)
-            {
-                AdminUI.AdminMenu();
-            }
-        }
-        else if (currentUser.isAdmin)
-        {
-            if (!currentUser.isAdmin)
-            {
-                UserUI.UserMenu();
+            UserDB userDB = new();
+            currentUser = userDB.ExtractSingleUserData();
+        } */
 
-            }
-        }
-        else if (currentUser == null)
-        {
-            AnsiConsole.Write(new Markup("\n[underline bold red] Invalid user email or password: Try again![/]"));
-        }
+    /*    public void LogInUser()
+       {
+           //user email check
+           AnsiConsole.Write(new Markup("[red] Enter email address: "));
+           string? emailInput = ApplicationLogic.CheckIfValid(Console.ReadLine().ToLower());
+           //password check
+           AnsiConsole.Write(new Markup("[red] Enter password: "));
+           string? passwordInput = ApplicationLogic.CheckIfValid(Console.ReadLine().ToLower());
+           User currentUser = UserLogic.UserLogin(emailInput, passwordInput);
 
-    }
+           if (currentUser != null)
+           {
+               if (currentUser.isAdmin)
+               {
+                   AdminUI.AdminMenu();
+               }
+           }
+           else if (currentUser.isAdmin)
+           {
+               if (!currentUser.isAdmin)
+               {
+                   UserUI.UserMenu();
 
-    public static void CreateUser(string email, string password) // Admin Access Only
+               }
+           }
+           else if (currentUser == null)
+           {
+               AnsiConsole.Write(new Markup("\n[underline bold red] Invalid user email or password: Try again![/]"));
+           }
+
+       }
+    */
+    public static void CreateUser() // Admin Access Only // denna måste skrivas om då writelines inte ska finnas här/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
     {
+        string? emailInput = string.Empty;
+        string? passwordInput = string.Empty;
+        var currentUser = new UserDB();
+        AppLogic.EmailOutput();
+        AppLogic.CheckIfValid(emailInput = Console.ReadLine().ToLower());
+        AppLogic.PassWordOutput();
+        AppLogic.CheckIfValid(passwordInput = Console.ReadLine().ToLower());
+        return currentUser = UserDB.UserInsertExecution(emailInput, passwordInput);
 
-        var currentUser = new();
-        AnsiConsole.WriteLine(new Markup("[red]- Create Account -[/]"));
-        AnsiConsole.Write(new Markup("\n[green] Enter email address: [/]"));
-        string? emailInput = ApplicationLogic.CheckIfValid(Console.ReadLine().ToLower());
-        //password check
-        AnsiConsole.WriteLine(new Markup("[red]- Create Account -[/]"));
-        AnsiConsole.Write(new Markup("\n[green] Enter password: [/]"));
-        string? passwordInput = ApplicationLogic.CheckIfValid(Console.ReadLine().ToLower());
-        currentUser = UserDB.ExecuteUserInsert(currentUser, emailInput, passwordInput);
     }
 
     public static void FindUser()

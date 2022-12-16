@@ -4,7 +4,7 @@ using Spectre.Console;
 public class ClientUI
 {
 
-    public void ClientMenu()
+    public static void ClientMenu()
     {
 
         bool isActive = true;

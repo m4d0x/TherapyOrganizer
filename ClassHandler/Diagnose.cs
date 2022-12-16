@@ -6,7 +6,7 @@ public class Diagnose
     public string DiagnoseName { get; set; }
     public string DiagnoseFounder { get; set; }
 
-    public Diagnose(string diagnoseName, string diagnoseFounder) //Only if legit Diagnose is found, invented or made up.
+    public Diagnose(string diagnoseName, string diagnoseFounder)//Only if legit Diagnose is found, invented or made up.
     {
 
     }

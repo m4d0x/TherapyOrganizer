@@ -50,7 +50,7 @@ public class AdminUI
             }
         }
     }
-    
+
     //Admin Sub Menues
     public static void UserOptions()
     {
@@ -67,27 +67,55 @@ public class AdminUI
 
             if (userInput == ConsoleKey.D1 || userInput == ConsoleKey.NumPad1) // Search User
             {
-                //Run UserSearch = DB QUERY SELECT * FROM user WHERE user contains id/name/mail 
+                UserLogic.FindUser();
             }
-            else if (userInput == ConsoleKey.D2 || userInput == ConsoleKey.NumPad2) // Create User
+            else if (userInput == ConsoleKey.D2 || userInput == ConsoleKey.NumPad2) // Admin Access Only // Create User 
             {
-                //Run CreateUser = DB EXECUTE INSERT INTO user (email, password)??
+                UserLogic.CreateUser(); 
+                // Run CreateUser = DB EXECUTE INSERT INTO user (email, password)??
+
             }
-            else if (userInput == ConsoleKey.D3 || userInput == ConsoleKey.NumPad3) // Edit User
+            else if (userInput == ConsoleKey.D3 || userInput == ConsoleKey.NumPad3) // Admin Access Only // Edit Users Data
             {
-                //Run UserUpdate = DB EXECUTE UPDATE user columns with data
+
+                //Run UserLogic.EditUser() - Kör en liten Meny nedanför - Enkel med:
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][green]- User Management -[/]\n")); //Header
+
+                // List All Users first!
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][cyan] Default User[/]\n[red]|2|[/][cyan] Default User2[/]\n[red]|3|[/][cyan] Default User3[/]\n"));
+
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][red] Search User[/]\n")); /by id/name/first_name/last_name/email - //Run SearchUser = DB EXECUTE UPDATE user columns with data
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][red] Edit User[/]\n")); /by id/name/first_name/last_name/email - //Run UserUpdate = DB EXECUTE UPDATE user columns with data
+
+
             }
-            else if (userInput == ConsoleKey.D4 || userInput == ConsoleKey.NumPad4) // Delete User
+            else if (userInput == ConsoleKey.D4 || userInput == ConsoleKey.NumPad4) // Admin Access Only // Delete User
             {
-                //Run DeleteUser = DB EXECUTE DELETE FROM user WHERE user is id/name/mail/phonenumber
+
+                // List All Users first!
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][cyan] Default User[/]\n[red]|2|[/][cyan] Default User2[/]\n[red]|3|[/][cyan] Default User3[/]\n"));
+
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][red] Search User[/]\n")); /by id/name/first_name/last_name/email - //Run SearchUser = DB EXECUTE UPDATE user columns with data
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][red] Delete User[/]\n")); //Run DeleteUser = DB EXECUTE DELETE FROM user WHERE user is id/name/mail/phonenumber
+
             }
-            else if (userInput == ConsoleKey.D5 || userInput == ConsoleKey.NumPad5) // Set User Accessability
+            else if (userInput == ConsoleKey.D5 || userInput == ConsoleKey.NumPad5) // Admin Access Only // Set User Accessability
             {
-                //Run SetUserAccessability = DB QUERY(get the user)(CheckWithC if user isAdmin)(option to set accessability from false to true) //only for admins
+
+                // List All Users first!
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][cyan] Default User[/]\n[red]|2|[/][cyan] Default User2[/]\n[red]|3|[/][cyan] Default User3[/]\n"));
+
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][red] Search User[/]\n")); /by id/name/first_name/last_name/email - //Run SearchUser = DB EXECUTE UPDATE user columns with data
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][red] Set User Accessability[/]\n")); //Run SetUserAccessability = DB QUERY(get the user)(CheckWithC if user isAdmin)(option to set accessability from false to true) //only for admins
+
+
+
             }
-            else if (userInput == ConsoleKey.D6 || userInput == ConsoleKey.NumPad6) // List All Users
+            else if (userInput == ConsoleKey.D6 || userInput == ConsoleKey.NumPad6) // General User Access // List All Users
             {
-                //Run ListUsers = DB QUERY SELECT * FROM users
+                // Run ListUsers = DB QUERY SELECT * FROM users
+                // List All Users first!
+                // AnsiConsole.Write(new Markup("\n[red]|1|[/][cyan] Default User[/]\n[red]|2|[/][cyan] Default User2[/]\n[red]|3|[/][cyan] Default User3[/]\n"));
             }
             else if (userInput == ConsoleKey.Q || userInput == ConsoleKey.End || userInput == ConsoleKey.Escape)
             {
@@ -210,7 +238,7 @@ public class AdminUI
             if (userInput == ConsoleKey.D1 || userInput == ConsoleKey.NumPad1) // Search Diagnose
             {
                 //Run SearchDiagnose => DB QUERY SELECT * FROM client WHERE client.id/name/email = id/name/email
-                
+
             }
             else if (userInput == ConsoleKey.D2 || userInput == ConsoleKey.NumPad2) // Create Diagnose
             {
@@ -230,7 +258,7 @@ public class AdminUI
                 //Run ListDiagnose => DB QUERY SELECT * FROM diagnose = certain diagnose or certain diagnose for a certain diagnose?
                 //Run ListAllBookings => DB QUERY SELECT * FROM diagnose /ev COUNT = all diagnose or all for a certain diagnose?
             }
-            else if (userInput == ConsoleKey.Q || userInput == ConsoleKey.End || userInput == ConsoleKey.Escape) 
+            else if (userInput == ConsoleKey.Q || userInput == ConsoleKey.End || userInput == ConsoleKey.Escape)
             {
                 isActive = false;
             }

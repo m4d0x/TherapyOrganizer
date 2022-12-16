@@ -1,6 +1,6 @@
 namespace ClassHandler;
 
-public class User
+public class User : UltraClass
 {
     public int UserId { get; set; }
     public string FirstName { get; set; }
@@ -10,14 +10,14 @@ public class User
     public int PhoneNumber { get; set; }
     public bool IsAdmin { get; set; }
 
-    public User(string firstName, string lastName, string email, string password, int phoneNumber) 
+    public User(string firstName, string lastName, string email, string password, string phoneNumber)// Should phoneNumber be string or int, TODO: Errorhandling for blankspace, -char or else
     {
         //create user/admin in db
         FirstName = firstName;
         LastName = lastName;
         Email = email;
         Password = password;
-        PhoneNumber = phoneNumber;
+        PhoneNumber = Convert.ToInt32(phoneNumber);
         IsAdmin = false;
     }
 

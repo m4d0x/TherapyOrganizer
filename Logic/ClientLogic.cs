@@ -2,7 +2,7 @@ namespace Logic;
 using Spectre.Console;
 
 public class ClientLogic
-{
+{/* 
 
     public void LogInClient()
     {
@@ -34,5 +34,5 @@ public class ClientLogic
             }
         }
 
-    }
+    } */
 }

@@ -1,6 +1,6 @@
 ﻿namespace ClassHandler;
 
-public class ClientCaseLog //ultraclass containing parts of each table
+public class ClientCaseLog : UltraClass//ultraclass containing parts of each table
 {
     
     //public int CCLogId { get; set; }
@@ -12,7 +12,7 @@ public class ClientCaseLog //ultraclass containing parts of each table
     public int CaseLogId { get; set; }
     public string CaseLogText { get; set; }
     
-    public ClientCaseLog()
+    public ClientCaseLog() : base(int diagnoseId, string diagnoseName, string)
     {
 
     }
