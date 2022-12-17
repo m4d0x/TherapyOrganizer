@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JZiDi0myOjdajfWkeY/QHIR1rzf2+ZlCUjSNFll2TDlq+pRGI0/BVL3n+bKmyZuWtzZo0OPybHBmFNIj4DymWg==",
+  "dgSpecHash": "P0sD1D7Dfwpd4oVvSuSdAcY9qThZRdZ+NS44tfqmkya/nbEMzF1WVebk+dwUcQ2wTMruEtY35umivXZeRQuK7g==",
   "success": true,
   "projectFilePath": "C:\\Users\\rober\\Desktop\\dbprojektarbete\\TherapyOrganizer\\DataManager\\DataManager.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\rober\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\mysqlconnector\\2.2.2\\mysqlconnector.2.2.2.nupkg.sha512"
+  ],
   "logs": []
 }
