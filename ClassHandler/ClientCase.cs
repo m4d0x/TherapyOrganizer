@@ -1,22 +1,17 @@
 namespace ClassHandler;
 
-public class ClientCase : UltraClass
+public class Case : IEntityHelper//: UltraClass
 {
-    public int Id { get; set; }
-    public int DiagnoseId { get; set; }
-    public DateTime Created { get; set; }
+    public static int CaseId { get; set; }
+    public static int DiagnoseId { get; set; }
+    public static DateTime ClientCaseCreated { get; set; }
 
-    public ClientCase(int id, int diagnoseId) : base()//creation of ClientCase
-    {
-        Id = id;
-        DiagnoseId = diagnoseId;
-        Created = DateTime.Now;
-    }
-
-    public ClientCase() //load of ClientCase
+    public Case() : base(int caseid) //int caseId, int diagnoseId : base()
     {
 
     }
+
+
 
 
 

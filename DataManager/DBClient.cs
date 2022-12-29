@@ -10,11 +10,11 @@ public class ClientDB
    {
       
    }
-
+/* 
    public void CreateClient(Client newClient)
    {
-      var connection = new MySqlConnection(Connector.sqlConString);
+      var connection = new MySqlConnection(DBConnection.);
 		var parameters = new DynamicParameters (newClient);
    }
-   
+    */
 }
